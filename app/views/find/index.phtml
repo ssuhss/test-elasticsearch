@@ -1,0 +1,22 @@
+<style>
+    #job{
+
+    }
+</style>
+
+
+<?php
+foreach ($jobs as $job){ ?>
+    <div id="job">
+<table>
+    <tr><td><b><?=$job['_source']['title'];?></b></td></tr>
+    <tr><td>Descrição:<?=$job['_source']['description'];?></td></tr>
+    <tr><td>salario:<?=$job['_source']['salario'];?></td></tr>
+    <tr><td>Cidade:<?php foreach ($job['_source']['cidadeFormated'] as $cidade){ echo $cidade."<br>"; }?></td></tr>
+</table>
+    </div>
+    <br>
+<?php } ?>
+
+
+
