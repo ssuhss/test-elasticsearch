@@ -8,14 +8,6 @@ defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirn
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 
 return new \Phalcon\Config([
-    'database' => [
-        'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => '',
-        'dbname'      => 'test',
-        'charset'     => 'utf8',
-    ],
     'application' => [
         'appDir'         => APP_PATH . '/',
         'controllersDir' => APP_PATH . '/controllers/',
@@ -25,6 +17,6 @@ return new \Phalcon\Config([
         'baseUri'        => '/catho/',
     ],
     'elasticsearch' => [
-        'host' => '172.17.0.4'
+        'host' => 'localhost'
     ]
 ]);

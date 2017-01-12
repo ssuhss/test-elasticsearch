@@ -7,7 +7,7 @@ class FindTest extends PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->client = new Client('http://127.0.0.1:8181/find');
+        $this->client = new Client('http://localhost:8181/find');
     }
 
     /**
@@ -61,9 +61,11 @@ class FindTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *  Teste de retorno de vagas com a pesquisa baseada no "title" e "description"
      *
+     *  Teste de CaseSensitive
      *
-     *
+     *  Teste de busca nula
      *
      */
     public function testFindByTitleOrDescription()
@@ -88,6 +90,13 @@ class FindTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     *  Teste de retorno de vagas com a pesquisa baseada no "title" e "description"
+     *
+     *  Ordenação Decrescente
+     *
+     *  Maior salário para "analista" = 5600
+     */
     public function testFindByTitleOrDescriptionDesc()
     {
         $search = 'analista';
@@ -98,7 +107,13 @@ class FindTest extends PHPUnit_Framework_TestCase
 
     }
 
-
+    /**
+     *  Teste de retorno de vagas com a pesquisa baseada no "title" e "description"
+     *
+     *  Ordenação Ascendente
+     *
+     *  Menor salário para "analista" = 900
+     */
     public function testFindByTitleOrDescriptionAsc()
     {
         $search = 'analista';
@@ -108,7 +123,11 @@ class FindTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(900, $titleOrDescription[0]->_source->salario);
     }
 
-
+    /**
+     *  Teste de retorno de vagas com a pesquisa baseada na "cidade"
+     *
+     *  Quantidade de vagas para "Chapeco" = 36
+     */
     public function testFindByCity()
     {
         $search = 'Chapeco';
@@ -118,6 +137,13 @@ class FindTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(36, count($city));
     }
 
+    /**
+     *  Teste de retorno de vagas com a pesquisa baseada na "cidade"
+     *
+     *  Ordenação Decrescente
+     *
+     *  Maior salário para "Chapeco" = 8000
+     */
     public function testFindByCityDesc()
     {
         $search = 'Chapeco';
@@ -127,6 +153,13 @@ class FindTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(8000, $city[0]->_source->salario);
     }
 
+    /**
+     *  Teste de retorno de vagas com a pesquisa baseada na "cidade"
+     *
+     *  Ordenação Ascendente
+     *
+     *  Menor salário para "Chapeco" = 1000
+     */
     public function testFindByCityAsc()
     {
         $search = 'Chapeco';

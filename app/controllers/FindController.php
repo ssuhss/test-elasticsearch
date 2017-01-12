@@ -93,13 +93,17 @@ class FindController extends \Phalcon\Mvc\Controller
         return $q;
     }
 
-
+    /**
+     *
+     *  Função para formato de retorno especifico
+     *
+     * @return null|string
+     */
     public function getFormat(){
         $request = new Request();
-        $validFormats = array('json');
         $format = null;
         if($request->get("format")){
-            if(in_array(strtolower($request->get("format")),$validFormats)){
+            if(strtolower($request->get("format")) == 'json'){
                 $format = strtolower($request->get("format"));
             }
         }

@@ -1,22 +1,17 @@
 <style>
-    #job{
-
+    .container{
+        border: 1px solid #e6e6e6;
     }
 </style>
-
-
-<?php
-foreach ($jobs as $job){ ?>
-    <div id="job">
-<table>
-    <tr><td><b><?=$job['_source']['title'];?></b></td></tr>
-    <tr><td>Descrição:<?=$job['_source']['description'];?></td></tr>
-    <tr><td>salario:<?=$job['_source']['salario'];?></td></tr>
-    <tr><td>Cidade:<?php foreach ($job['_source']['cidadeFormated'] as $cidade){ echo $cidade."<br>"; }?></td></tr>
-</table>
-    </div>
-    <br>
-<?php } ?>
-
-
-
+<div id="jobs">
+    <?php
+    foreach ($jobs as $job){ ?>
+        <div id="job">
+            <div id="title"><h2><?=$job['_source']['title'];?></h2></div>
+            <div id="description"><?=$job['_source']['description'];?></div>
+            <div id="salario"><b>Salario:</b>R$ <?=number_format($job['_source']['salario'], 2, ',', '.');?></div>
+            <div id="cidade"><b>Cidade:</b> <?php foreach ($job['_source']['cidadeFormated'] as $cidade){ echo $cidade."<br>"; }?></div>
+        </div>
+        <hr>
+    <?php } ?>
+</div>
