@@ -8,7 +8,7 @@ class IndexController extends \Phalcon\Mvc\Controller
      *  Função para limpar dados do Elasticsearch em massa
      *  E atualizar dados do Elasticsearch com Vagas.json
      */
-    public function updateElasticSearchAction()
+    public function updateElasticSearchDataAction()
     {
         $elasticSearchClient = new ElasticsearchClient();
         $elasticSearchClient->deleteElasticSearchData();

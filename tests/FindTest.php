@@ -168,6 +168,4 @@ class FindTest extends PHPUnit_Framework_TestCase
         $city = json_decode($response->getBody());
         $this->assertEquals(1000, $city[0]->_source->salario);
     }
-
-
 }
